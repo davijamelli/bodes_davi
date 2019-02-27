@@ -1,4 +1,4 @@
-
+#' Agora estamos no github
 #' title: "TestVignette"
 #' author: "John Fieberg"
 #' date: ""
@@ -17,6 +17,7 @@
 #' Load libraries
 #+warning=FALSE, message=FALSE
 #install.packages("knitr","lubridate","maptools","raster","move","amt","ggmap","tibble", "leaflet","dplyr")
+
 
 library(knitr)
 library(lubridate)
@@ -348,8 +349,8 @@ colSums(is.na(trk_capr))
 trk_capr %>% filter(id=="B02") %>%
   random_points(.,factor = 100) %>% plot
 
-#Tentar inserir pontos randômicos na área de vida Kernel e não do MCP. 
-#MCP é o padrão da função random_points
+#Tentar inserir pontos rand?micos na ?rea de vida Kernel e n?o do MCP. 
+#MCP ? o padr?o da fun??o random_points
 trk_capr %>% filter(id=="B12") %>%
  random_points(.,factor = 100, hr="kde") %>% plot
 
@@ -361,7 +362,7 @@ trk_capr %>% filter(id=="B12") %>%
 #' Now, lets generate points for all individuals. We can do this
 #' efficiently by making use of pipes (%>%),nested data frames, and
 #' then by adding a new column -- a list-column -- to trks
-##POR QUE TYPE = REGULAR? POR QUE NÃO RANDOM?
+##POR QUE TYPE = REGULAR? POR QUE N?O RANDOM?
 avail.pts_capr <- trk_capr %>% nest(-id) %>% 
   mutate(rnd_pts = map(data, ~ random_points(., factor = 20, type="regular"))) %>% 
   select(id, rnd_pts) %>%  # you dont want to have the original point twice, hence drop data
